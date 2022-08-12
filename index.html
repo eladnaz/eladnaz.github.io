@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Rapport Bomb Calculator<h1>
-<p>Go to <a href="https://papunika.com/affinity/">Papunika Rapport Website</a> and get the total rapport needed of the NPC you are bombing</p>
-<p>e.g. Nia is 57,800</p>
-</body>
+	<head>
+		<script type="text/javascript">
+			function calcRapport(){
+				var table = document.getElementById("rapport_table");
+				var rapport = document.getElementById("rapport_total").value;
+				var count = 0
+				for(let i = rapport; i > 0; i-2000){
+					var tr = table.insertRow(-1);
+					var td = tr.insertCell();
+					td.innerHTML = (i-2000) + "-" + (i-1501);
+					td = tr.insertCell();
+					count++
+					td.innerHTML = count;
+			}
+			
+			function deleteRows(){
+				var table = document.getElementById("rapport_table");
+				var rowCount = table.rows.length;
+				if(rowCount > '2'){
+					var row = table.deleteRow(rowCount-1);
+					rowCount--;
+				}
+		</script>
+	</head>
+	<body>
+		<h1>Rapport Bomb Calculator<h1>
+		<p>Go to <a href="https://papunika.com/affinity/">Papunika Rapport Website</a> and get the total rapport needed of the NPC you are bombing</p>
+		<p>e.g. Nia is 57,800</p>
+		<p>All range values are done based on total rapport and not stages like Amicable or Friendly</p>
+		<p>To find out what your current total is just look at the stage totals in Papunika e.g. if your Nia is 1101 at Friendly 1</p>
+		<p>then take the total from the stage before (Amicable 3=24,800) and add it to your current Friendly 1 rapport which equals to 25,901 rapport</p>
+		<p>Rapport total: </p>
+		<input type="text" id="rapport_total">
+		<button type="button" onclick="calcRapport()">Calculate</button>
+		<table id="rapport_table">
+			<tr>
+				<th>Range</th>
+				<th>Legendaries needed</th>
+			</tr>
+		</table>
+	</body>
 </html>
