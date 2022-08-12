@@ -4,24 +4,36 @@
 		<script type="text/javascript">
 			function calcRapport(){
 				var table = document.getElementById("rapport_table");
-				var rowCount = table.rows.length;
-				if(rowCount > '2'){
-					var row = table.deleteRow(rowCount-1);
-					rowCount--;
+				if(table.rows.length > 1){
+					for(var i = 1;i<table.rows.length;){
+						table.deleteRow(i);
+					}
 				}
 				var rapport = document.getElementById("rapport_total").value;
 				var count = 0
-				for(let i = rapport; i > 0; i-2000){
-					var tr = table.insertRow(-1);
+				for(var i = rapport; i > 0; i-=2000){
+					var tr = table.insertRow();
 					var td = tr.insertCell();
 					td.innerHTML = (i-2000) + "-" + (i-1501);
 					td = tr.insertCell();
-					count++
+					count++;
 					td.innerHTML = count;
 				}
-				alert("test");
+				test(rapport);
+			}
+			
+			function test(value){
+				console.log(value);
 			}
 		</script>
+		<style>
+			table, th, td { 
+				border:1px solid;
+			}
+			td{
+				text-align:center;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Rapport Bomb Calculator<h1>
