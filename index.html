@@ -4,6 +4,11 @@
 		<script type="text/javascript">
 			function calcRapport(){
 				var table = document.getElementById("rapport_table");
+				var rowCount = table.rows.length;
+				if(rowCount > '2'){
+					var row = table.deleteRow(rowCount-1);
+					rowCount--;
+				}
 				var rapport = document.getElementById("rapport_total").value;
 				var count = 0
 				for(let i = rapport; i > 0; i-2000){
@@ -13,15 +18,9 @@
 					td = tr.insertCell();
 					count++
 					td.innerHTML = count;
-			}
-			
-			function deleteRows(){
-				var table = document.getElementById("rapport_table");
-				var rowCount = table.rows.length;
-				if(rowCount > '2'){
-					var row = table.deleteRow(rowCount-1);
-					rowCount--;
 				}
+				alert("test");
+			}
 		</script>
 	</head>
 	<body>
