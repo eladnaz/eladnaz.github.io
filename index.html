@@ -3,20 +3,71 @@
 	<head>
 		<script type="text/javascript">
 			function calcRapport(){
-				var table = document.getElementById("rapport_table");
-				if(table.rows.length > 1){
-					for(var i = 1;i<table.rows.length;){
-						table.deleteRow(i);
+				var table_legend = document.getElementById("rapport_table_legend");
+				var table_epic_one = document.getElementById("rapport_table_epic_one");
+				var table_epic_two = document.getElementById("rapport_table_epic_two");
+				var table_epic_three = document.getElementById("rapport_table_epic_three");
+				if(table_legend.rows.length > 1){
+					for(var i = 1;i<table_legend.rows.length;){
+						table_legend.deleteRow(i);
+					}
+				}
+				if(table_epic_one.rows.length > 1){
+					for(var i = 1;i<table_epic_one.rows.length;){
+						table_epic_one.deleteRow(i);
+					}
+				}
+				if(table_epic_two.rows.length > 1){
+					for(var i = 1;i<table_epic_two.rows.length;){
+						table_epic_two.deleteRow(i);
+					}
+				}
+				if(table_epic_three.rows.length > 1){
+					for(var i = 1;i<table_epic_three.rows.length;){
+						table_epic_three.deleteRow(i);
 					}
 				}
 				var rapport = document.getElementById("rapport_total").value;
 				var count = 0
 				for(var i = rapport; i > 0; i-=2000){
-					var tr = table.insertRow();
+					var tr = table_legend.insertRow();
 					var td = tr.insertCell();
 					td.innerHTML = (i-2000) + "-" + (i-1501);
 					td = tr.insertCell();
 					count++;
+					td.innerHTML = count;
+				}
+				count = 0;
+				for(var i = rapport; i > 0; i-=330){
+					var tr = table_epic_one.insertRow();
+					var td = tr.insertCell();
+					td.innerHTML = (i-330) + "-" + (i-330+499);
+					td = tr.insertCell();
+					count++;
+					if(count > 99)
+						break;
+					td.innerHTML = count;
+				}
+				count = 0;
+				for(var i = rapport; i > 0; i-=360){
+					var tr = table_epic_two.insertRow();
+					var td = tr.insertCell();
+					td.innerHTML = (i-360) + "-" + (i-360+499);
+					td = tr.insertCell();
+					count++;
+					if(count > 99)
+						break;
+					td.innerHTML = count;
+				}
+				count = 0;
+				for(var i = rapport; i > 0; i-=390){
+					var tr = table_epic_three.insertRow();
+					var td = tr.insertCell();
+					td.innerHTML = (i-390) + "-" + (i-390+500);
+					td = tr.insertCell();
+					count++;
+					if(count > 99)
+						break;
 					td.innerHTML = count;
 				}
 				test(rapport);
@@ -45,10 +96,28 @@
 		<p>Rapport total: </p>
 		<input type="text" id="rapport_total">
 		<button type="button" onclick="calcRapport()">Calculate</button>
-		<table id="rapport_table">
+		<table id="rapport_table_legend">
 			<tr>
 				<th>Range</th>
 				<th>Legendaries needed</th>
+			</tr>
+		</table>
+		<table id="rapport_table_epic_one">
+			<tr>
+				<th>Range</th>
+				<th>Epic(330) needed</th>
+			</tr>
+		</table>
+		<table id="rapport_table_epic_two">
+			<tr>
+				<th>Range</th>
+				<th>Epic(360) needed</th>
+			</tr>
+		</table>
+		<table id="rapport_table_epic_three">
+			<tr>
+				<th>Range</th>
+				<th>Epic(390) needed</th>
 			</tr>
 		</table>
 	</body>
