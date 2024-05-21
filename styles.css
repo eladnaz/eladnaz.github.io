@@ -222,8 +222,8 @@ table td{
 }
 
 .carousel {
-  width: 40vw; /* Adjust width as needed */
-  height:40vh;
+  width: 50vw; /* Adjust width as needed */
+  height:50vh;
   overflow: hidden;
   position: relative;
 }
@@ -282,8 +282,8 @@ table td{
 }
 
 .slide img{
-	width:40vw;
-	height:40vh;
+	width:50vw;
+	height:50vh;
 }
 
 .caption {
