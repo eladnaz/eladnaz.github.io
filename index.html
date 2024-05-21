@@ -1,124 +1,98 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<script type="text/javascript">
-			function calcRapport(){
-				var table_legend = document.getElementById("rapport_table_legend");
-				var table_epic_one = document.getElementById("rapport_table_epic_one");
-				var table_epic_two = document.getElementById("rapport_table_epic_two");
-				var table_epic_three = document.getElementById("rapport_table_epic_three");
-				if(table_legend.rows.length > 1){
-					for(var i = 1;i<table_legend.rows.length;){
-						table_legend.deleteRow(i);
-					}
-				}
-				if(table_epic_one.rows.length > 1){
-					for(var i = 1;i<table_epic_one.rows.length;){
-						table_epic_one.deleteRow(i);
-					}
-				}
-				if(table_epic_two.rows.length > 1){
-					for(var i = 1;i<table_epic_two.rows.length;){
-						table_epic_two.deleteRow(i);
-					}
-				}
-				if(table_epic_three.rows.length > 1){
-					for(var i = 1;i<table_epic_three.rows.length;){
-						table_epic_three.deleteRow(i);
-					}
-				}
-				var rapport = document.getElementById("rapport_total").value;
-				var count = 0
-				for(var i = rapport; i > 0; i-=2000){
-					var tr = table_legend.insertRow();
-					var td = tr.insertCell();
-					td.innerHTML = (i-2000) + "-" + (i-1501);
-					td = tr.insertCell();
-					count++;
-					td.innerHTML = count;
-				}
-				count = 0;
-				for(var i = rapport; i > 0; i-=330){
-					var tr = table_epic_one.insertRow();
-					var td = tr.insertCell();
-					td.innerHTML = (i-330) + "-" + (i-330+499);
-					td = tr.insertCell();
-					count++;
-					if(count > 99)
-						break;
-					td.innerHTML = count;
-				}
-				count = 0;
-				for(var i = rapport; i > 0; i-=360){
-					var tr = table_epic_two.insertRow();
-					var td = tr.insertCell();
-					td.innerHTML = (i-360) + "-" + (i-360+499);
-					td = tr.insertCell();
-					count++;
-					if(count > 99)
-						break;
-					td.innerHTML = count;
-				}
-				count = 0;
-				for(var i = rapport; i > 0; i-=390){
-					var tr = table_epic_three.insertRow();
-					var td = tr.insertCell();
-					td.innerHTML = (i-390) + "-" + (i-390+500);
-					td = tr.insertCell();
-					count++;
-					if(count > 99)
-						break;
-					td.innerHTML = count;
-				}
-				test(rapport);
-			}
-			
-			function test(value){
-				console.log(value);
-			}
-		</script>
-		<style>
-			table, th, td { 
-				border:1px solid;
-			}
-			td{
-				text-align:center;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>Rapport Bomb Calculator<h1>
-		<p>Go to <a href="https://papunika.com/affinity/">Papunika Rapport Website</a> and get the total rapport needed of the NPC you are bombing</p>
-		<p>e.g. Nia is 57800</p>
-		<p>All range values are done based on total rapport and not stages like Amicable or Friendly</p>
-		<p>To find out what your current rapport is just look at the stage totals in Papunika e.g. if your Nia is 1101 at Friendly 1</p>
-		<p>then take the total from the stage before (Amicable 3=24800) and add it to your current Friendly 1 rapport which equals to 25901 rapport</p>
-		<p>Rapport total: </p>
-		<input type="text" id="rapport_total">
-		<button type="button" onclick="calcRapport()">Calculate</button>
-		<table id="rapport_table_legend">
-			<tr>
-				<th>Range</th>
-				<th>Legendaries needed</th>
-			</tr>
-		</table>
-		<table id="rapport_table_epic_one">
-			<tr>
-				<th>Range</th>
-				<th>Epic(330) needed</th>
-			</tr>
-		</table>
-		<table id="rapport_table_epic_two">
-			<tr>
-				<th>Range</th>
-				<th>Epic(360) needed</th>
-			</tr>
-		</table>
-		<table id="rapport_table_epic_three">
-			<tr>
-				<th>Range</th>
-				<th>Epic(390) needed</th>
-			</tr>
-		</table>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>d'cuiSin</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./img/icon.png" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10,100&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+		<section class="header-container">
+			<div class="title-container">
+				<div class="title" id="anchor-1">
+					<h1 class="great-vibes-regular xx-large-font">d'cuiSin</h1>
+					<img src='./img/logo_without_bg.png'></img>
+				</div>
+			</div>
+			<div class="action-container">
+				<a href="https://www.instagram.com/xuensenn/" target="_blank" class="great-vibes-regular x-large-font" >
+					<i class="fa-brands fa-instagram"></i>
+				</a>
+				<a href="#" class="great-vibes-regular x-large-font" id="anchor-2">Our Story</a>
+				<a href="#" class="great-vibes-regular x-large-font" id="anchor-3">Menu</a>
+				<a href="#" class="great-vibes-regular x-large-font" id="anchor-4">Reviews</a>
+			</div>
+		</section>
+		<section class="body-container">
+			<div class="bg-slide" id="bg-slide-1">
+				<span class="great-vibes-regular xx-large-font">Dine, Wine, accept Gluttony as your favourite Sin...</span>
+			</div>
+			<div class="bg-slide" id="bg-slide-2"><p class="story-lul inter-italic x-large-font">Alright I ran out of ideas, its 2.30am and I've been working on this since 8pm. Many braincells were put into this site, hopefully you're convinced to invest in this <span style="text-decoration:line-through">shitpost</span> proposal. Like wtf I deleted my hinge but somehow I'm reminded to create this through LinkedIn? ?_?</p></div>
+			<div class="bg-slide" id="bg-slide-3">
+				<div class="carousel">
+					<div class="carousel-container">
+						<div class="slide">
+						  <img src="./img/octo.jpg" alt="Image 1">
+						  <p class="caption inter-italic">Fresh hot octopus singles near you</p>
+						</div>
+						<div class="slide">
+						  <img src="./img/truffle.jpg" alt="Image 2">
+						  <p class="caption inter-italic">Truffle for the troubled</p>
+						</div>
+						<div class="slide">
+						  <img src="./img/steak.jpg" alt="Image 3">
+						  <p class="caption inter-italic">H9 grade reared sinbull meat</p>
+						</div>
+						<div class="slide">
+						  <img src="./img/stew.jpeg" alt="Image 4">
+						  <p class="caption inter-italic">Asmodeus' bath</p>
+						</div>
+						<div class="slide">
+						  <img src="./img/mala.png" alt="Image 5">
+						  <p class="caption inter-italic">Hades garden mix, guaranteed on spice</p>
+						</div>
+						<div class="slide">
+						  <img src="./img/fnc.jpg" alt="Image 6">
+						  <p class="caption inter-italic">Tender meteorfish, finished with tartarus sauce</p>
+						</div>
+					</div>
+					<button class="carousel-control prev xx-large-font">&#8249;</button>
+					<button class="carousel-control next xx-large-font">&#8250;</button>
+				</div>
+			</div>
+			<div class="bg-slide" id="bg-slide-4"><div class="table-container">
+					<table>
+						<tr>
+							<th class="celeb-column"><span class="inter-italic large-font">The Celebrity</span></th>
+							<th class="review-column"><span class="inter-italic large-font">The Review</span></th>
+						</tr>
+						<tr>
+							<td class="celeb-column"><img src="./img/gordon.jpg"></img></td>
+							<td class="review-column"><span class="inter-italic normal-font">Alright, listen up. Forget the ponce around with foams and deconstructions. This place, <strong>d'cuiSin</strong>? Now that's what I'm talking about. Simple menu, fresh ingredients, cooked bloody well right. Had the scallops - perfect sear, risotto creamy without being that stodgy mess. Lamb shank? Falling off the bone, jus bang on. Sole? Flaky, perfect. Didn't even need to send anything back! Dessert wasn't a sugar bomb either. Shocking. Service? Knew their stuff. Pricey? Aye, but for this quality? Can't fault it. 
+							<strong>You lot after a decent meal? This. This is the kind of place I wouldn't complain about. Not one bit.</strong</span></td>
+						</tr>
+						<tr>
+							<td class="celeb-column"><img src="./img/jordan.jpg"></img></td>
+							<td class="review-column"><span class="inter-italic normal-font">Air Jordan here. <strong>d'cuiSin</strong> sure as hell, heh, looks too flashy, but the food's all-star. My steak? Game winner. Sides on point. Chocolate cake? Championship material. Service knew the game. This place delivers. You won't be disappointed.</span></td>
+						</tr>
+						<tr>
+							<td class="celeb-column"><img src="./img/hathaway.jpg"></img></td>
+							<td class="review-column"><span class="inter-italic normal-font">Darling, <strong>d'cuiSin</strong>  is absolutely delightful! It's charming and intimate, with a focus on fresh, seasonal ingredients. I had the most divine burrata with heirloom tomatoes - a perfect balance of textures and flavors. Everything felt so light and clean, yet utterly satisfying. Divine! The service was impeccable, attentive without being intrusive. A truly delightful experience, highly recommend!</span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</section>
+		<section class="footer-container"><span class="inter-italic">Disclaimer: imagine clicking on a link from a stranger</span></section>
+    </main>
+	<script src="scripts.js"></script>
+	<script src="https://kit.fontawesome.com/10c26b2829.js" crossorigin="anonymous"></script>
+  </body>
 </html>
